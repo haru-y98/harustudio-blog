@@ -1,0 +1,137 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-brand: #D97706;
+  }
+
+  body {
+    @apply bg-light-bg text-light-text dark:bg-dark-bg dark:text-dark-text;
+    @apply font-japanese antialiased;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-sans font-semibold;
+  }
+
+  a {
+    @apply text-light-link hover:text-light-link-hover dark:text-dark-link dark:hover:text-dark-link-hover;
+    @apply transition-colors duration-200;
+  }
+
+  /* Selection */
+  ::selection {
+    @apply bg-brand/30;
+  }
+}
+
+@layer components {
+  /* Article content styles */
+  .prose-custom {
+    @apply max-w-[800px] mx-auto;
+  }
+
+  .prose-custom h1 {
+    @apply text-[2.5rem] font-bold mt-12 mb-6;
+  }
+
+  .prose-custom h2 {
+    @apply text-[2rem] font-semibold mt-10 mb-4 pb-2 border-b border-dark-bg-secondary/30 dark:border-light-bg-secondary/20;
+  }
+
+  .prose-custom h3 {
+    @apply text-[1.5rem] font-semibold mt-8 mb-3;
+  }
+
+  .prose-custom p {
+    @apply my-5 leading-[1.8];
+  }
+
+  .prose-custom ul, .prose-custom ol {
+    @apply my-5 pl-6;
+  }
+
+  .prose-custom li {
+    @apply my-2;
+  }
+
+  .prose-custom ul li {
+    @apply list-disc;
+  }
+
+  .prose-custom ol li {
+    @apply list-decimal;
+  }
+
+  .prose-custom blockquote {
+    @apply border-l-4 border-brand pl-4 my-6 italic text-light-text/80 dark:text-dark-text/80;
+  }
+
+  .prose-custom img {
+    @apply rounded-lg my-6 mx-auto;
+  }
+
+  .prose-custom hr {
+    @apply my-8 border-light-bg-secondary dark:border-dark-bg-secondary;
+  }
+
+  .prose-custom strong {
+    @apply font-semibold text-brand;
+  }
+
+  /* Code blocks */
+  .prose-custom pre {
+    @apply my-6 rounded-lg overflow-x-auto;
+  }
+
+  .prose-custom code {
+    @apply font-mono text-sm;
+  }
+
+  .prose-custom :not(pre) > code {
+    @apply bg-light-bg-secondary dark:bg-dark-bg-secondary px-1.5 py-0.5 rounded text-brand;
+  }
+
+  /* rehype-pretty-code styles */
+  .prose-custom [data-rehype-pretty-code-figure] {
+    @apply my-6;
+  }
+
+  .prose-custom [data-rehype-pretty-code-figure] pre {
+    @apply bg-dark-bg-secondary border border-brand/20 py-4 px-0 my-0;
+  }
+
+  .prose-custom [data-rehype-pretty-code-figure] code {
+    @apply grid;
+  }
+
+  .prose-custom [data-line] {
+    @apply px-4 border-l-2 border-transparent;
+  }
+
+  .prose-custom [data-highlighted-line] {
+    @apply bg-brand/10 border-l-brand;
+  }
+
+  /* Table styles */
+  .prose-custom table {
+    @apply w-full my-6 border-collapse;
+  }
+
+  .prose-custom th, .prose-custom td {
+    @apply border border-light-bg-secondary dark:border-dark-bg-secondary px-4 py-2 text-left;
+  }
+
+  .prose-custom th {
+    @apply bg-light-bg-secondary dark:bg-dark-bg-secondary font-semibold;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
